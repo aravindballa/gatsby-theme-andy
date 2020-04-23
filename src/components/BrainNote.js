@@ -41,7 +41,10 @@ const BrainNote = ({ note }) => {
           .filter((reference) => !!reference.childMdx.excerpt)
           .map((ln, i) => (
             <Portal key={i}>
-              <div id={ln.slug}>
+              <div
+                id={ln.slug}
+                style={{ display: "none", width: 300, height: 150 }}
+              >
                 <h5>{ln.title}</h5>
                 <p>{ln.childMdx.excerpt}</p>
               </div>
