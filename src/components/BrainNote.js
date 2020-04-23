@@ -10,19 +10,19 @@ const BrainNote = ({ note }) => {
   let referenceBlock;
   if (note.inboundReferenceNotes != null) {
     references = note.inboundReferenceNotes.map((reference) => (
-      <a href={`/${reference.slug}`} key={reference.slug}>
-        <div>
+      <li>
+        <a href={`/${reference.slug}`} key={reference.slug}>
           <h5>{reference.title}</h5>
-          <p>{reference.childMdx.excerpt}</p>
-        </div>
-      </a>
+        </a>
+        <p>{reference.childMdx.excerpt}</p>
+      </li>
     ));
 
     if (references.length > 0) {
       referenceBlock = (
         <>
           <h3>Refered in</h3>
-          <div>{references}</div>
+          <ul>{references}</ul>
         </>
       );
     }
@@ -43,7 +43,12 @@ const BrainNote = ({ note }) => {
             <Portal key={i}>
               <div
                 id={ln.slug}
-                style={{ display: "none", width: 300, height: 150 }}
+                style={{
+                  display: "none",
+                  position: "fixed",
+                  width: 300,
+                  height: 150,
+                }}
               >
                 <h5>{ln.title}</h5>
                 <p>{ln.childMdx.excerpt}</p>
