@@ -1,0 +1,32 @@
+{
+  "name": "gatsby-theme-andy",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Aravind Balla <bsaaravind@gmail.com> (https://aravindballa.com)",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "clean": "gatsby clean"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.20.23",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@mdx-js/mdx": "^1.5.8",
+    "@mdx-js/react": "^1.5.8",
+    "gatsby": "^2.20.23",
+    "gatsby-plugin-mdx": "^1.1.8",
+    "gatsby-transformer-remark": "^2.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "dependencies": {
+    "@aengusm/gatsby-theme-brain": "^1.0.5",
+    "@reach/portal": "^0.10.0"
+  }
+}
