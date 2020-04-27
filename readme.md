@@ -1,7 +1,7 @@
 # gatsby-theme-andy
 
 <p style="text-align:center;" align="center">
-<img src="https://github.com/aravindballa/gatsby-theme-andy/blob/master/andy-logo.png" alt="theme andy logo"  width="200" height="200"/>
+<img src="https://github.com/aravindballa/gatsby-theme-andy/blob/master/andy-logo.png" alt="theme andy logo"  width="200" height="auto"/>
 <br/>
 <img alt="npm" src="https://img.shields.io/npm/v/gatsby-theme-andy">
 </p>
