@@ -21,14 +21,16 @@ const AnchorTag = ({ href, ...restProps }) => {
     }
   };
   if (!href.match(/^http/))
-    <Link
-      {...restProps}
-      to={href}
-      onMouseEnter={showTooltip}
-      onMouseLeave={hideTooltip}
-      onFocus={showTooltip}
-      onBlur={hideTooltip}
-    />;
+    return (
+      <Link
+        {...restProps}
+        to={href}
+        onMouseEnter={showTooltip}
+        onMouseLeave={hideTooltip}
+        onFocus={showTooltip}
+        onBlur={hideTooltip}
+      />
+    );
   return <a {...restProps} href={href} />;
 };
 
