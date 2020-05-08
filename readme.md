@@ -8,7 +8,9 @@
 
 This is inspired by the work of [Andy](https://notes.andymatuschak.org/About_these_notes) and is based on [gatsby-theme-brain](https://github.com/aengusmcmillin/gatsby-theme-brain).
 
-Demo - [https://notes.aravindballa.com](https://notes.aravindballa.com/)
+Simple Demo - https://codesandbox.io/s/gatsby-theme-andy-demo-tnv6r
+
+[https://notes.aravindballa.com](https://notes.aravindballa.com/) uses this with custom components.
 
 ## Usage
 
