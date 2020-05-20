@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-andy",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "keywords": [],
@@ -26,7 +26,7 @@
     "react-dom": "^16.13.1"
   },
   "dependencies": {
-    "@aengusm/gatsby-theme-brain": "^1.0.5",
-    "@reach/portal": "^0.10.0"
+    "@aengusm/gatsby-theme-brain": "1.0.5",
+    "@tippyjs/react": "^4.0.2"
   }
 }
