@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default ({ reference }) => {
   return (
@@ -6,11 +6,11 @@ export default ({ reference }) => {
       style={{
         width: 300,
         height: 150,
-        background: "lightgray",
-        padding: 16,
+        background: 'lightgray',
+        padding: 8,
       }}
     >
-      <h5>{reference.title}</h5>
+      <h3>{reference.title}</h3>
       <p>{reference.childMdx.excerpt}</p>
     </div>
   );

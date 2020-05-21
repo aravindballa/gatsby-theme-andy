@@ -1,14 +1,15 @@
-import React from "react";
-import { Link } from "gatsby";
-import Tippy from "@tippyjs/react";
+import React from 'react';
+import { LinkToStacked } from 'react-stacked-pages-hook';
+
+import Tippy from './Tippy';
 
 const AnchorTag = ({ href, popups = {}, ...restProps }) => {
   href = href || restProps.to;
   if (!href.match(/^http/)) {
-    const Popup = popups[href.replace(/^\//, "")];
+    const Popup = popups[href.replace(/^\//, '')];
     return (
-      <Tippy content={Popup} placement="top" animation="slide-away">
-        <Link {...restProps} to={href} />
+      <Tippy content={Popup}>
+        <LinkToStacked {...restProps} to={href} />
       </Tippy>
     );
   }

@@ -1,10 +1,10 @@
-import React from "react";
-import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
-import { MDXProvider } from "@mdx-js/react";
+import React from 'react';
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
+import { MDXProvider } from '@mdx-js/react';
 
-import components from "./MdxComponents";
-import Popover from "./Popover";
-import ReferredBlock from "./ReferredBlock";
+import components from './MdxComponents';
+import Popover from './Popover';
+import ReferredBlock from './ReferredBlock';
 
 const BrainNote = ({ note }) => {
   note.inboundReferenceNotes = note.inboundReferenceNotes || [];
@@ -17,9 +17,7 @@ const BrainNote = ({ note }) => {
       popups[ln.slug] = <Popover reference={ln} />;
     });
 
-  const AnchorTagWithPopups = (props) => (
-    <components.a {...props} popups={popups} />
-  );
+  const AnchorTagWithPopups = (props) => <components.a {...props} popups={popups} />;
 
   return (
     <MDXProvider components={{ a: AnchorTagWithPopups }}>

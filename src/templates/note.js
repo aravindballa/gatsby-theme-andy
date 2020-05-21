@@ -1,9 +1,16 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import BrainNote from '../components/BrainNote';
+import BrainNoteContainer from '../components/BrainNoteContainer';
 
 export default (props) => {
-  return <BrainNote note={props.data.brainNote} />;
+  return (
+    <BrainNoteContainer
+      note={props.data.brainNote}
+      location={props.location}
+      slug={props.pageContext.slug}
+      siteMetadata={props.data.site.siteMetadata}
+    />
+  );
 };
 
 export const query = graphql`
@@ -27,6 +34,11 @@ export const query = graphql`
         childMdx {
           excerpt
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
       }
     }
   }

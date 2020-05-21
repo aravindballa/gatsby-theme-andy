@@ -28,8 +28,9 @@ You can shadow/overrride few componenets in your project. In your directory, you
 
 - [Popover.js](https://github.com/aravindballa/gatsby-theme-andy/blob/master/src/components/Popover.js) - This is the component which is shown when you hover over an internal link.
 - [RefferedBlock.js](https://github.com/aravindballa/gatsby-theme-andy/blob/master/src/components/ReferredBlock.js) - The block which contains all the references to the note. This is at the bottom of the page
-- [BrainNote.js](https://github.com/aravindballa/gatsby-theme-andy/blob/master/src/components/BrainNote.js) - This is the general layout of the page.
-- [MdxComponents.js](https://github.com/aravindballa/gatsby-theme-andy/blob/master/src/components/MdxComponents.js) - This has the TippyJS configs. You'll have to override this if you want to change the props to Tippy.
+- [BrainNote.js](https://github.com/aravindballa/gatsby-theme-andy/blob/master/src/components/BrainNote.js) - This is the note page.
+- [BrainNoteContainer.js](https://github.com/aravindballa/gatsby-theme-andy/blob/master/src/components/BrainNoteContainer.js) - This is the layout page that stacks up the notes.
+- [Tippy.js](https://github.com/aravindballa/gatsby-theme-andy/blob/master/src/components/Tippy.js) - This has the TippyJS configs. You'll have to override this if you want to change the props to Tippy.
 
 ## Contribution
 
