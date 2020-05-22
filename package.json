@@ -1,10 +1,13 @@
 {
   "name": "gatsby-theme-andy",
-  "version": "0.1.1",
-  "description": "",
+  "version": "0.1.2",
+  "description": "A Gatsby theme to build Andy style websites.",
   "main": "index.js",
   "keywords": [],
   "author": "Aravind Balla <bsaaravind@gmail.com> (https://aravindballa.com)",
+  "repository": {
+    "url": "https://github.com/aravindballa/gatsby-theme-andy"
+  },
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
