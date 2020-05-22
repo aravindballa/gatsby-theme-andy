@@ -11,6 +11,9 @@ module.exports = ({
   hideDoubleBrackets = false,
   mdxOtherwiseConfigured = false,
 }) => ({
+  siteMetadata: {
+    title: 'My Notes',
+  },
   plugins: [
     {
       resolve: '@aengusm/gatsby-theme-brain',
