@@ -8,6 +8,7 @@ export default ({ reference }) => {
         height: 150,
         background: 'lightgray',
         padding: 8,
+        borderRadius: 8,
       }}
     >
       <h3>{reference.title}</h3>

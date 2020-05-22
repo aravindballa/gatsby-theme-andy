@@ -16,6 +16,10 @@ jobs:
           node-version: 12.16.1
       - name: Publish if version has been updated
         uses: pascalgn/npm-publish-action@4f4bf159e299f65d21cd1cbd96fc5d53228036df
+        with:
+          tag_name: 'v%s'
+          tag_message: 'v%s'
+          commit_pattern: '*'
         env: # More info about the environment variables in the README
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
