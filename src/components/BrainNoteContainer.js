@@ -45,7 +45,6 @@ const BrainNotesContainer = ({ slug, note, location, siteMetadata }) => {
     firstPageSlug: slug,
     location,
     processPageQuery,
-    containerRef: scrollContainer,
     pageWidth: 625,
   });
 
