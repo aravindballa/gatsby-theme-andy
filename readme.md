@@ -6,11 +6,11 @@
 <img alt="npm" src="https://img.shields.io/npm/v/gatsby-theme-andy">
 </p>
 
-This is inspired by the work of [Andy](https://notes.andymatuschak.org/About_these_notes) and is based on [gatsby-theme-brain](https://github.com/aengusmcmillin/gatsby-theme-brain). Also uses [react-stacked-pages-hook](https://github.com/mathieudutour/gatsby-n-roamresearch/tree/master/packages/react-stacked-pages-hook) for staking up the notes side by side.
+This is inspired by the work of [Andy](https://notes.andymatuschak.org/About_these_notes) and is based on [gatsby-theme-brain](https://github.com/aengusmcmillin/gatsby-theme-brain). Also uses [react-stacked-pages-hook](https://github.com/mathieudutour/gatsby-n-roamresearch/tree/master/packages/react-stacked-pages-hook) for staking up the notes side by side. This has the functionality of stacking up and backlinking with out any style elements.
 
 Simple Demo - https://codesandbox.io/s/gatsby-theme-andy-demo-tnv6r
 
-[https://notes.aravindballa.com](https://notes.aravindballa.com/) uses this with a few custom components.
+[https://notes.aravindballa.com](https://notes.aravindballa.com/) uses this with a few custom components and custom styles.
 
 ## Usage
 
