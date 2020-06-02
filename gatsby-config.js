@@ -8,7 +8,7 @@ module.exports = ({
   rootPath = '/',
   rootNote = 'about',
   linkifyHashtags = false,
-  hideDoubleBrackets = false,
+  hideDoubleBrackets = true,
   mdxOtherwiseConfigured = false,
 }) => ({
   siteMetadata: {

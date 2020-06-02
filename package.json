@@ -35,7 +35,10 @@
   "dependencies": {
     "@aengusm/gatsby-theme-brain": "^1.0.12",
     "@tippyjs/react": "^4.0.2",
+    "gatsby-plugin-postcss": "^2.3.2",
     "querystring": "^0.2.0",
-    "react-stacked-pages-hook": "^0.2.0"
+    "react-helmet": "^6.0.0",
+    "react-stacked-pages-hook": "^0.2.0",
+    "tailwindcss": "^1.4.6"
   }
 }

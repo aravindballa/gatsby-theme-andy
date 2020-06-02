@@ -1,40 +1,35 @@
 import React from 'react';
 import { LinkToStacked } from 'react-stacked-pages-hook';
-import { useStaticQuery, graphql } from 'gatsby';
+import { Link } from 'gatsby';
+
+import useWindowWidth from '../utils/useWindowWidth';
 
 export default ({ references }) => {
-  // support for custom rootNote
-  const {
-    sitePlugin: { pluginOptions },
-  } = useStaticQuery(graphql`
-    query ThemeBrainOptions {
-      sitePlugin(name: { eq: "@aengusm/gatsby-theme-brain" }) {
-        pluginOptions {
-          rootNote
-          rootPath
-        }
-      }
-    }
-  `);
+  const [width] = useWindowWidth();
 
   if (references.length > 0) {
+    const RefLink = width < 768 ? Link : LinkToStacked;
+
     return (
       <>
         <h3>Referred in</h3>
-        <ul>
+        <div className="mb-4">
           {references.map((reference) => {
-            const slug =
-              reference.slug === pluginOptions.rootNote
-                ? pluginOptions.rootPath
-                : `/${reference.slug}`;
             return (
-              <li key={slug}>
-                <LinkToStacked to={slug}>{reference.title}</LinkToStacked> -{' '}
-                {reference.childMdx.excerpt}
-              </li>
+              <RefLink
+                className="no-underline hover:text-gray-700"
+                to={reference.slug}
+                key={reference.slug}
+              >
+                <div className="py-2">
+                  <h5 className="">{reference.title}</h5>
+                  <p className="text-sm m-0">{reference.childMdx.excerpt}</p>
+                </div>
+              </RefLink>
             );
           })}
-        </ul>
+        </div>
+        <hr className="mx-auto w-32" />
       </>
     );
   }
