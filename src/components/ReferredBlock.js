@@ -1,6 +1,8 @@
+/** @jsx jsx */
 import React from 'react';
 import { LinkToStacked } from 'react-stacked-pages-hook';
 import { Link } from 'gatsby';
+import { Styled, jsx, Heading } from 'theme-ui';
 
 import useWindowWidth from '../utils/useWindowWidth';
 
@@ -12,24 +14,36 @@ export default ({ references }) => {
 
     return (
       <>
-        <h3>Referred in</h3>
-        <div className="mb-4">
+        <Heading as="h4" color="text-light">
+          Referred in
+        </Heading>
+        <div sx={{ mb: 2 }}>
           {references.map((reference) => {
             return (
               <RefLink
-                className="no-underline hover:text-gray-700"
+                sx={{
+                  textDecoration: 'none',
+                  color: 'text-light',
+                  ':hover': {
+                    color: 'text',
+                  },
+                }}
                 to={reference.slug}
                 key={reference.slug}
               >
-                <div className="py-2">
-                  <h5 className="">{reference.title}</h5>
-                  <p className="text-sm m-0">{reference.childMdx.excerpt}</p>
+                <div sx={{ py: 2 }}>
+                  <Styled.p sx={{ fontSize: 2, m: 0, color: 'text-light' }}>
+                    {reference.title}
+                  </Styled.p>
+                  <Styled.p sx={{ fontSize: 1, m: 0, color: 'text-light' }}>
+                    {reference.childMdx.excerpt}
+                  </Styled.p>
                 </div>
               </RefLink>
             );
           })}
         </div>
-        <hr className="mx-auto w-32" />
+        <hr sx={{ mx: 'auto', width: 64 }} />
       </>
     );
   }

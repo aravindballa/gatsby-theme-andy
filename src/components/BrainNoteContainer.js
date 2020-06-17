@@ -1,8 +1,10 @@
+/** @jsx jsx */
 import React from 'react';
-import { Link } from 'gatsby';
 import { useStackedPagesProvider, LinkToStacked } from 'react-stacked-pages-hook';
 import { Helmet } from 'react-helmet';
+import { Styled, jsx, Flex, Box } from 'theme-ui';
 
+import Header from './Header';
 import BrainNote from './BrainNote';
 
 import '../styles.css';
@@ -20,31 +22,56 @@ const StackedPageWrapper = ({
   i,
 }) => (
   <PageIndexProvider value={i}>
-    <div
-      className={`note-container md:max-w-xl px-4 overflow-y-auto bg-white md:sticky flex flex-col flex-shrink-0 ${
-        overlay ? 'shadow-lg' : ''
-      }`}
-      style={{ left: 40 * i, right: -585, width: NOTE_WIDTH }}
+    <Flex
+      bg="background"
+      px={3}
+      className="note-container"
+      sx={{
+        flexDirection: 'column',
+        flexShrink: 0,
+        overflowY: 'auto',
+        position: [null, null, 'sticky'],
+        maxWidth: ['100%', '100%', '100vw'],
+        boxShadow: overlay ? `0 0 8px rgba(0, 0, 0, 0.125)` : '',
+        width: NOTE_WIDTH,
+        left: 40 * i,
+        right: -585,
+      }}
     >
-      <div
-        className={`md:block hidden transition-opacity duration-100 ${
-          obstructed ? `opacity-100` : `opacity-0`
-        }`}
+      <Box
+        sx={{
+          display: ['none', 'none', 'block'],
+          transition: 'opacity',
+          transitionDuration: 100,
+          opacity: obstructed ? 1 : 0,
+        }}
       >
-        <div className={`transform rotate-90 origin-left pb-4 absolute z-10`}>
-          <LinkToStacked to={slug} className="no-underline text-gray-900">
-            <p className="m-0 font-bold">{title || slug}</p>
+        <Box
+          sx={{
+            position: 'absolute',
+            zIndex: 10,
+            transform: 'rotate(90deg)',
+            transformOrigin: 'left',
+          }}
+          pb={2}
+        >
+          <LinkToStacked to={slug}>
+            <Styled.p sx={{ m: 0, fontWeight: 'bold' }}>{title || slug}</Styled.p>
           </LinkToStacked>
-        </div>
-      </div>
-      <div
-        className={`flex flex-col min-h-full transition-opacity duration-100 ${
-          obstructed ? `opacity-0` : `opacity-100`
-        }`}
+        </Box>
+      </Box>
+      <Flex
+        sx={{
+          flexDirection: 'column',
+          minHeight: '100%',
+          transition: 'opacity',
+          transitionDuration: 100,
+          opacity: obstructed ? 0 : 1,
+        }}
       >
         {children}
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   </PageIndexProvider>
 );
 
@@ -66,28 +93,39 @@ const BrainNotesContainer = ({ slug, note, location, siteMetadata }) => {
   });
 
   return (
-    <div className="text-gray-900 flex flex-col min-h-screen h-screen">
+    <Flex
+      sx={{
+        flexDirection: 'column',
+        height: '100vh',
+        minHeight: '100vh',
+      }}
+    >
       <Helmet>
         <meta charSet="utf-8" />
         <title>
           {note.title} - {siteMetadata.title}
         </title>
       </Helmet>
-      <header>
-        <div className="font-bold py-2 border-b px-4">
-          <Link to="/" className="no-underline text-gray-900">
-            {siteMetadata.title}
-          </Link>
-        </div>
-      </header>
+      <Header siteMetadata={siteMetadata} />
 
-      <div
-        className="flex-1 flex flex-grow overflow-x-hidden md:overflow-x-auto overflow-y-hidden"
+      <Flex
         ref={scrollContainer}
+        sx={{
+          flex: 1,
+          flexGrow: 1,
+          overflowX: [null, null, 'auto'],
+          overflowY: 'hidden',
+        }}
       >
-        <div
-          className="note-columns-container flex flex-grow transition-width duration-100"
-          style={{ width: NOTE_WIDTH * (stackedPages.length + 1) }}
+        <Flex
+          className="note-columns-container"
+          sx={{
+            minWidth: 'unset',
+            flexGrow: 1,
+            transition: [null, null, 'width'],
+            transitionDuration: 100,
+            width: ['100vw', '100vw', NOTE_WIDTH * (stackedPages.length + 1)],
+          }}
         >
           <ContextProvider value={{ stackedPages, navigateToStackedPage }}>
             {/* Render the first page */}
@@ -117,9 +155,9 @@ const BrainNotesContainer = ({ slug, note, location, siteMetadata }) => {
               </StackedPageWrapper>
             ))}
           </ContextProvider>
-        </div>
-      </div>
-    </div>
+        </Flex>
+      </Flex>
+    </Flex>
   );
 };
 
