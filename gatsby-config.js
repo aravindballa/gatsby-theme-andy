@@ -11,6 +11,9 @@ module.exports = ({
   hideDoubleBrackets = true,
   mdxOtherwiseConfigured = false,
   themeUIOtherwiseConfigured = false,
+  generateRSS = false,
+  rssPath = '/rss.xml',
+  rssTitle = 'My Notes',
 }) => ({
   siteMetadata: {
     title: 'My Notes',
@@ -28,6 +31,9 @@ module.exports = ({
         linkifyHashtags,
         hideDoubleBrackets,
         mdxOtherwiseConfigured,
+        generateRSS,
+        rssPath,
+        rssTitle,
       },
     },
     !themeUIOtherwiseConfigured && `gatsby-plugin-theme-ui`,
