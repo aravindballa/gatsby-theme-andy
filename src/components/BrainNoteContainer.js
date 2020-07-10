@@ -2,7 +2,6 @@
 import React from 'react';
 import {
   useStackedPagesProvider,
-  useStackedPage,
   LinkToStacked,
   StackedPagesProvider,
   PageIndexProvider,
@@ -10,6 +9,7 @@ import {
 import { Helmet } from 'react-helmet';
 import { Styled, jsx, Flex, Box } from 'theme-ui';
 
+import useWindowWidth from '../utils/useWindowWidth';
 import Header from './Header';
 import BrainNote from './BrainNote';
 
@@ -36,7 +36,7 @@ const NoteWrapper = ({ children, slug, title, overlay, obstructed, i }) => {
           position: [null, null, 'sticky'], // here
           maxWidth: ['100%', '100%', '100vw'],
           boxShadow: overlay ? `0 0 8px rgba(0, 0, 0, 0.125)` : '',
-          width: NOTE_WIDTH,
+          width: ['100%', '100%', NOTE_WIDTH],
           left: 40 * i,
           right: -585,
         }}
@@ -80,6 +80,8 @@ const NoteWrapper = ({ children, slug, title, overlay, obstructed, i }) => {
 };
 
 const BrainNotesContainer = ({ slug, note, location, siteMetadata }) => {
+  const [width] = useWindowWidth();
+
   // process data from gatsby pageQuery API
   const processPageQuery = React.useCallback((x) => x.brainNote, []);
   const [state, scrollContainer] = useStackedPagesProvider({
@@ -89,6 +91,19 @@ const BrainNotesContainer = ({ slug, note, location, siteMetadata }) => {
     pageWidth: NOTE_WIDTH,
   });
   const { stackedPages, stackedPageStates } = state;
+
+  let pages = stackedPages;
+  let indexToShow;
+  if (width < 768) {
+    const activeSlug = Object.keys(state.stackedPageStates).find(
+      (slug) => state.stackedPageStates[slug].active
+    );
+    indexToShow = state.stackedPages.findIndex((page) => page.slug === activeSlug);
+    if (indexToShow === -1) {
+      indexToShow = state.stackedPages.length - 1;
+    }
+    pages = [state.stackedPages[indexToShow]];
+  }
 
   return (
     <Flex
@@ -122,19 +137,23 @@ const BrainNotesContainer = ({ slug, note, location, siteMetadata }) => {
             flexGrow: 1,
             transition: [null, null, 'width'],
             transitionDuration: 100,
-            width: [null, null, NOTE_WIDTH * (stackedPages.length + 1)],
+            width: ['100%', '100%', NOTE_WIDTH * (pages.length + 1)],
           }}
         >
           <StackedPagesProvider value={state}>
             {/* Render the stacked pages */}
-            {stackedPages.map((page, i) => (
+            {pages.map((page, i) => (
               <StackedPageWrapper
                 i={i}
                 key={page.slug}
                 slug={page.slug}
                 title={page.data.title}
                 overlay={stackedPageStates[page.slug] && stackedPageStates[page.slug].overlay}
-                obstructed={stackedPageStates[page.slug] && stackedPageStates[page.slug].obstructed}
+                obstructed={
+                  pages
+                    ? false
+                    : stackedPageStates[page.slug] && stackedPageStates[page.slug].obstructed
+                }
                 highlighted={
                   stackedPageStates[page.slug] && stackedPageStates[page.slug].highlighted
                 }
