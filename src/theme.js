@@ -28,6 +28,20 @@ export default {
     body: 1.5,
     heading: 1.125,
   },
+  links: {
+    internal: {
+      color: 'links',
+      px: '2px',
+      mx: '-2px',
+      borderRadius: 1,
+      ':hover': {
+        bg: 'accent',
+      },
+      ':focus': {
+        bg: 'accent',
+      },
+    },
+  },
   styles: {
     root: {
       fontFamily: 'body',
@@ -81,6 +95,10 @@ export default {
     },
     a: {
       color: 'links',
+      textDecoration: 'none',
+      ':hover': {
+        textDecoration: 'underline',
+      },
     },
     pre: {
       fontFamily: 'monospace',

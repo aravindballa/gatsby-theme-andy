@@ -29,5 +29,6 @@ module.exports = ({
         mdxOtherwiseConfigured,
       },
     },
+    `gatsby-plugin-theme-ui`,
   ],
 });
