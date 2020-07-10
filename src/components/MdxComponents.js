@@ -9,26 +9,14 @@ import { jsx } from 'theme-ui';
 
 // TODO cmd+click open page in new tab
 
-const innerLinkStyles = {
-  px: '2px',
-  mx: '-2px',
-  borderRadius: 1,
-  ':hover': {
-    bg: 'accent',
-  },
-  ':focus': {
-    bg: 'accent',
-  },
-};
-
 const AnchorTag = ({ href, popups = {}, noPopups = false, ...restProps }) => {
   if (!href) href = restProps.to;
   if (!href.match(/^http/))
     return noPopups ? (
-      <Link {...restProps} to={href} sx={innerLinkStyles} />
+      <Link {...restProps} to={href} sx={{ variant: 'links.internal' }} />
     ) : (
       <Tippy content={popups[href.replace(/^\//, '')]} placement="right" animation="shift-away">
-        <LinkToStacked {...restProps} to={href} sx={innerLinkStyles} />
+        <LinkToStacked {...restProps} to={href} sx={{ variant: 'links.internal' }} />
       </Tippy>
     );
   return <a {...restProps} href={href} />;

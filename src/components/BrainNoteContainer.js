@@ -1,96 +1,94 @@
 /** @jsx jsx */
 import React from 'react';
-import { useStackedPagesProvider, LinkToStacked } from 'react-stacked-pages-hook';
+import {
+  useStackedPagesProvider,
+  useStackedPage,
+  LinkToStacked,
+  StackedPagesProvider,
+  PageIndexProvider,
+} from 'react-stacked-pages-hook';
 import { Helmet } from 'react-helmet';
 import { Styled, jsx, Flex, Box } from 'theme-ui';
 
 import Header from './Header';
 import BrainNote from './BrainNote';
 
-import '../styles.css';
-
 const NOTE_WIDTH = 576; // w-xl
 
-// A wrapper component to render the content of a page when stacked
-const StackedPageWrapper = ({
-  PageIndexProvider,
-  children,
-  slug,
-  title,
-  overlay,
-  obstructed,
-  i,
-}) => (
+const StackedPageWrapper = ({ i, ...rest }) => (
   <PageIndexProvider value={i}>
-    <Flex
-      bg="background"
-      px={3}
-      className="note-container"
-      sx={{
-        flexDirection: 'column',
-        flexShrink: 0,
-        overflowY: 'auto',
-        position: [null, null, 'sticky'],
-        maxWidth: ['100%', '100%', '100vw'],
-        boxShadow: overlay ? `0 0 8px rgba(0, 0, 0, 0.125)` : '',
-        width: NOTE_WIDTH,
-        left: 40 * i,
-        right: -585,
-      }}
-    >
-      <Box
+    <NoteWrapper {...rest} i={i} />
+  </PageIndexProvider>
+);
+
+// A wrapper component to render the content of a page when stacked
+const NoteWrapper = ({ children, slug, title, overlay, obstructed, i }) => {
+  return (
+    <>
+      <Flex
+        bg="background"
+        px={3}
+        className="note-container"
         sx={{
-          display: ['none', 'none', 'block'],
-          transition: 'opacity',
-          transitionDuration: 100,
-          opacity: obstructed ? 1 : 0,
+          flexDirection: 'column',
+          flexShrink: 0,
+          overflowY: 'auto',
+          position: [null, null, 'sticky'], // here
+          maxWidth: ['100%', '100%', '100vw'],
+          boxShadow: overlay ? `0 0 8px rgba(0, 0, 0, 0.125)` : '',
+          width: NOTE_WIDTH,
+          left: 40 * i,
+          right: -585,
         }}
       >
         <Box
           sx={{
-            position: 'absolute',
-            zIndex: 10,
-            transform: 'rotate(90deg)',
-            transformOrigin: 'left',
+            display: ['none', 'none', 'block'],
+            transition: 'opacity',
+            transitionDuration: 100,
+            opacity: obstructed ? 1 : 0,
           }}
-          pb={2}
         >
-          <LinkToStacked to={slug}>
-            <Styled.p sx={{ m: 0, fontWeight: 'bold' }}>{title || slug}</Styled.p>
-          </LinkToStacked>
+          <Box
+            sx={{
+              position: 'absolute',
+              zIndex: 10,
+              transform: 'rotate(90deg)',
+              transformOrigin: 'left',
+            }}
+            pb={2}
+          >
+            <LinkToStacked to={slug}>
+              <Styled.p sx={{ m: 0, fontWeight: 'bold' }}>{title || slug}</Styled.p>
+            </LinkToStacked>
+          </Box>
         </Box>
-      </Box>
-      <Flex
-        sx={{
-          flexDirection: 'column',
-          minHeight: '100%',
-          transition: 'opacity',
-          transitionDuration: 100,
-          opacity: obstructed ? 0 : 1,
-        }}
-      >
-        {children}
+        <Flex
+          sx={{
+            flexDirection: 'column',
+            minHeight: '100%',
+            transition: 'opacity',
+            transitionDuration: 100,
+            opacity: obstructed ? 0 : 1,
+          }}
+        >
+          {children}
+        </Flex>
       </Flex>
-    </Flex>
-  </PageIndexProvider>
-);
+    </>
+  );
+};
 
 const BrainNotesContainer = ({ slug, note, location, siteMetadata }) => {
   // process data from gatsby pageQuery API
-  const processPageQuery = React.useCallback((x) => x.json.data.brainNote, []);
-  const [
-    stackedPages,
-    stackedPageStates,
-    navigateToStackedPage,
-    ContextProvider,
-    PageIndexProvider,
-    scrollContainer,
-  ] = useStackedPagesProvider({
-    firstPageSlug: slug,
+  const processPageQuery = React.useCallback((x) => x.brainNote, []);
+  const [state, scrollContainer] = useStackedPagesProvider({
+    firstPage: { slug, data: { brainNote: note } },
     location,
     processPageQuery,
     pageWidth: NOTE_WIDTH,
   });
+  const { stackedPages, stackedPageStates } = state;
 
   return (
     <Flex
@@ -124,37 +122,27 @@ const BrainNotesContainer = ({ slug, note, location, siteMetadata }) => {
             flexGrow: 1,
             transition: [null, null, 'width'],
             transitionDuration: 100,
-            width: ['100vw', '100vw', NOTE_WIDTH * (stackedPages.length + 1)],
+            width: [null, null, NOTE_WIDTH * (stackedPages.length + 1)],
           }}
         >
-          <ContextProvider value={{ stackedPages, navigateToStackedPage }}>
-            {/* Render the first page */}
-            <StackedPageWrapper
-              PageIndexProvider={PageIndexProvider}
-              i={0}
-              slug={slug}
-              title={note.title}
-              overlay={stackedPageStates[slug] && stackedPageStates[slug].overlay}
-              obstructed={stackedPageStates[slug] && stackedPageStates[slug].obstructed}
-            >
-              <BrainNote note={note} />
-            </StackedPageWrapper>
-
+          <StackedPagesProvider value={state}>
             {/* Render the stacked pages */}
             {stackedPages.map((page, i) => (
               <StackedPageWrapper
-                PageIndexProvider={PageIndexProvider}
-                i={i + 1}
+                i={i}
                 key={page.slug}
                 slug={page.slug}
                 title={page.data.title}
                 overlay={stackedPageStates[page.slug] && stackedPageStates[page.slug].overlay}
                 obstructed={stackedPageStates[page.slug] && stackedPageStates[page.slug].obstructed}
+                highlighted={
+                  stackedPageStates[page.slug] && stackedPageStates[page.slug].highlighted
+                }
               >
                 <BrainNote note={page.data} />
               </StackedPageWrapper>
             ))}
-          </ContextProvider>
+          </StackedPagesProvider>
         </Flex>
       </Flex>
     </Flex>
