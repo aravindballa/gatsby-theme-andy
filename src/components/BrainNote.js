@@ -8,7 +8,7 @@ import components from './MdxComponents';
 import Footer from './Footer';
 import Popover from './Popover';
 
-import theme from '../gatsby-plugin-theme-ui';
+import theme from '../theme';
 
 const BrainNote = ({ note }) => {
   const [width] = useWindowWidth();

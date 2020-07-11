@@ -5,9 +5,7 @@ import { LinkToStacked } from 'react-stacked-pages-hook';
 import { Link } from 'gatsby';
 import { jsx } from 'theme-ui';
 
-// Animation styles are imported in `src/styles.css`
-
-// TODO cmd+click open page in new tab
+import 'tippy.js/animations/shift-away.css';
 
 const AnchorTag = ({ href, popups = {}, noPopups = false, ...restProps }) => {
   if (!href) href = restProps.to;

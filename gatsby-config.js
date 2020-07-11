@@ -10,6 +10,7 @@ module.exports = ({
   linkifyHashtags = false,
   hideDoubleBrackets = true,
   mdxOtherwiseConfigured = false,
+  themeUIOtherwiseConfigured = false,
 }) => ({
   siteMetadata: {
     title: 'My Notes',
@@ -29,6 +30,6 @@ module.exports = ({
         mdxOtherwiseConfigured,
       },
     },
-    `gatsby-plugin-theme-ui`,
+    !themeUIOtherwiseConfigured && `gatsby-plugin-theme-ui`,
   ],
 });
