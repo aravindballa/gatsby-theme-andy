@@ -28,7 +28,7 @@ export default ({ references }) => {
                     color: 'text',
                   },
                 }}
-                to={reference.slug}
+                to={`/${reference.slug}`}
                 key={reference.slug}
               >
                 <div sx={{ py: 2 }}>

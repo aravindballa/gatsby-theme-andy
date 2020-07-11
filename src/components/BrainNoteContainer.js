@@ -22,11 +22,11 @@ const StackedPageWrapper = ({ i, ...rest }) => (
 );
 
 // A wrapper component to render the content of a page when stacked
-const NoteWrapper = ({ children, slug, title, overlay, obstructed, i }) => {
+const NoteWrapper = ({ children, slug, title, overlay, obstructed, highlighted, i }) => {
   return (
     <>
       <Flex
-        bg="background"
+        bg={highlighted ? 'accent' : 'background'}
         px={3}
         className="note-container"
         sx={{
