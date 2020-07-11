@@ -29,7 +29,7 @@ Simple Demo - https://codesandbox.io/s/gatsby-theme-andy-demo-tnv6r
   };
   ```
 
-- Create directory `content` at root and add a few `md` files. We can use `[[]]` syntax to interlink the pages. Look at [this directory](./content) for an example.
+- Create directory `content` at root and add a few `md` files. We can use `[[]]` syntax to interlink the pages. Look at [this directory](./sample-content) for an example.
 - Now we add these scripts below to `package.json` and run `yarn develop`.
 
   ```json
