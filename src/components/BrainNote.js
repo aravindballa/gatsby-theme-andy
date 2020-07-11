@@ -1,34 +1,40 @@
+/** @jsx jsx */
 import React from 'react';
-import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
-import { MDXProvider } from '@mdx-js/react';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { Styled, ThemeProvider, jsx } from 'theme-ui';
 
+import useWindowWidth from '../utils/useWindowWidth';
 import components from './MdxComponents';
+import Footer from './Footer';
 import Popover from './Popover';
-import ReferredBlock from './ReferredBlock';
+
+import theme from '../theme';
 
 const BrainNote = ({ note }) => {
-  note.inboundReferenceNotes = note.inboundReferenceNotes || [];
-  note.outboundReferenceNotes = note.outboundReferenceNotes || [];
+  const [width] = useWindowWidth();
 
   const popups = {};
-  note.outboundReferenceNotes
-    .filter((reference) => !!reference.childMdx.excerpt)
-    .forEach((ln, i) => {
-      popups[ln.slug] = <Popover reference={ln} />;
-    });
+  if (note.outboundReferenceNotes) {
+    note.outboundReferenceNotes
+      .filter((reference) => !!reference.childMdx.excerpt)
+      .forEach((ln, i) => {
+        popups[ln.slug] = <Popover reference={ln} />;
+      });
+  }
 
-  const AnchorTagWithPopups = (props) => <components.a {...props} popups={popups} />;
+  const AnchorTagWithPopups = (props) => (
+    <components.a {...props} popups={popups} noPopups={width < 768} />
+  );
 
   return (
-    <MDXProvider components={{ a: AnchorTagWithPopups }}>
-      <div id="note">
-        <div>
-          <h1>{note.title}</h1>
-          <MDXRenderer>{note.childMdx.body}</MDXRenderer>
-        </div>
-        <ReferredBlock references={note.inboundReferenceNotes} />
+    <ThemeProvider theme={theme} components={{ ...components, a: AnchorTagWithPopups }}>
+      <div sx={{ flex: '1' }}>
+        <Styled.h1 sx={{ my: 3 }}>{note.title}</Styled.h1>
+        <MDXRenderer>{note.childMdx.body}</MDXRenderer>
       </div>
-    </MDXProvider>
+
+      <Footer references={note.inboundReferenceNotes} />
+    </ThemeProvider>
   );
 };
 

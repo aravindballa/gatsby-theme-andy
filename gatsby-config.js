@@ -8,8 +8,9 @@ module.exports = ({
   rootPath = '/',
   rootNote = 'about',
   linkifyHashtags = false,
-  hideDoubleBrackets = false,
+  hideDoubleBrackets = true,
   mdxOtherwiseConfigured = false,
+  themeUIOtherwiseConfigured = false,
 }) => ({
   siteMetadata: {
     title: 'My Notes',
@@ -29,5 +30,6 @@ module.exports = ({
         mdxOtherwiseConfigured,
       },
     },
+    !themeUIOtherwiseConfigured && `gatsby-plugin-theme-ui`,
   ],
 });

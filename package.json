@@ -1,12 +1,16 @@
 {
   "name": "gatsby-theme-andy",
-  "version": "0.1.4",
+  "version": "0.2.0-alpha.1",
   "description": "A Gatsby theme to build Andy style websites.",
   "main": "index.js",
   "keywords": [
     "gatsby",
     "gatsby-theme",
-    "andy"
+    "andy",
+    "garden",
+    "digital garden",
+    "second brain",
+    "andy matuschak"
   ],
   "author": "Aravind Balla <bsaaravind@gmail.com> (https://aravindballa.com)",
   "repository": {
@@ -24,18 +28,23 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@mdx-js/mdx": "^1.5.8",
-    "@mdx-js/react": "^1.5.8",
-    "gatsby": "^2.20.23",
-    "gatsby-plugin-mdx": "^1.1.8",
-    "gatsby-transformer-remark": "^2.7.2",
+    "@mdx-js/mdx": "^1.6.6",
+    "@mdx-js/react": "^1.6.6",
+    "gatsby": "^2.24.1",
+    "gatsby-plugin-mdx": "^1.2.25",
+    "gatsby-transformer-remark": "^2.8.25",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "dependencies": {
-    "@aengusm/gatsby-theme-brain": "^1.0.12",
-    "@tippyjs/react": "^4.0.2",
+    "@aengusm/gatsby-theme-brain": "^1.0.13",
+    "@tippyjs/react": "^4.1.0",
+    "gatsby-plugin-postcss": "^2.3.11",
+    "gatsby-plugin-theme-ui": "^0.3.0",
     "querystring": "^0.2.0",
-    "react-stacked-pages-hook": "^0.2.0"
+    "react-helmet": "^6.1.0",
+    "react-stacked-pages-hook": "^0.4.4",
+    "tailwindcss": "^1.4.6",
+    "theme-ui": "^0.3.1"
   }
 }
