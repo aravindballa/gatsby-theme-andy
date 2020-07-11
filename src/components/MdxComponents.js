@@ -1,11 +1,10 @@
 /** @jsx jsx */
 import React from 'react';
-import Tippy from '@tippyjs/react';
 import { LinkToStacked } from 'react-stacked-pages-hook';
 import { Link } from 'gatsby';
 import { jsx } from 'theme-ui';
 
-import 'tippy.js/animations/shift-away.css';
+import Tippy from './Tippy';
 
 const AnchorTag = ({ href, popups = {}, noPopups = false, ...restProps }) => {
   if (!href) href = restProps.to;
