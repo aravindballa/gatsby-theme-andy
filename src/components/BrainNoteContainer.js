@@ -2,7 +2,6 @@
 import React from 'react';
 import {
   useStackedPagesProvider,
-  LinkToStacked,
   StackedPagesProvider,
   PageIndexProvider,
 } from 'react-stacked-pages-hook';
@@ -12,6 +11,7 @@ import { Styled, jsx, Flex, Box } from 'theme-ui';
 import useWindowWidth from '../utils/useWindowWidth';
 import Header from './Header';
 import BrainNote from './BrainNote';
+import { LinkToStacked } from './CustomLinkToStacked';
 
 const NOTE_WIDTH = 576; // w-xl
 

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React from 'react';
-import { LinkToStacked } from 'react-stacked-pages-hook';
+import { LinkToStacked } from './CustomLinkToStacked';
 import { Link } from 'gatsby';
 import { Styled, jsx, Heading } from 'theme-ui';
 
