@@ -14,6 +14,8 @@ Simple Demo - https://codesandbox.io/s/gatsby-theme-andy-demo-tnv6r
 
 ## Getting started
 
+> This theme requires alteast NodeJS v12. You can check your version by running `node -v` in your terminal. [Know more](https://github.com/aengusmcmillin/gatsby-theme-brain#note-this-theme-requires-nodejs-v12)
+
 ### From scratch
 
 - Create a new directory and from that directory, run `npm init`.
@@ -40,7 +42,7 @@ Simple Demo - https://codesandbox.io/s/gatsby-theme-andy-demo-tnv6r
   },
   ```
 
-### Adding to an exsisting project
+### Adding to an exsisting Gatsby project
 
 > _Coming soon_
 
