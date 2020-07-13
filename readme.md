@@ -16,7 +16,9 @@ This is inspired by the work of [Andy](https://notes.andymatuschak.org/About_the
 
 ### From scratch
 
-<iframe width="560" height="315" center src="https://www.youtube.com/embed/bf5Wj-1IHa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Video tutorial 👇
+
+[![click to watch](https://i.ytimg.com/vi/bf5Wj-1IHa4/hqdefault.jpg)](https://youtu.be/bf5Wj-1IHa4)
 
 _Link to the [video](https://youtu.be/bf5Wj-1IHa4)_
 
