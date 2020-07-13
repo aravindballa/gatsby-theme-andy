@@ -8,8 +8,6 @@
 
 This is inspired by the work of [Andy](https://notes.andymatuschak.org/About_these_notes) and is based on [gatsby-theme-brain](https://github.com/aengusmcmillin/gatsby-theme-brain). Also uses [react-stacked-pages-hook](https://github.com/mathieudutour/gatsby-n-roamresearch/tree/master/packages/react-stacked-pages-hook) for staking up the notes side by side. And unleashes the power of [theme-ui](https://theme-ui.com/home) for easy themeable components.
 
-Simple Demo - https://codesandbox.io/s/gatsby-theme-andy-demo-tnv6r
-
 [https://notes.aravindballa.com](https://notes.aravindballa.com/) uses this with a few custom components and custom styles.
 
 ## Getting started
@@ -17,6 +15,10 @@ Simple Demo - https://codesandbox.io/s/gatsby-theme-andy-demo-tnv6r
 > This theme requires alteast NodeJS v12. You can check your version by running `node -v` in your terminal. [Know more](https://github.com/aengusmcmillin/gatsby-theme-brain#note-this-theme-requires-nodejs-v12)
 
 ### From scratch
+
+<iframe width="560" height="315" center src="https://www.youtube.com/embed/bf5Wj-1IHa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+_Link to the [video](https://youtu.be/bf5Wj-1IHa4)_
 
 - Create a new directory and from that directory, run `npm init`.
 - Add all the dependencies `yarn add gatsby react react-dom gatsby-theme-andy`.
@@ -44,7 +46,7 @@ Simple Demo - https://codesandbox.io/s/gatsby-theme-andy-demo-tnv6r
 
 ### Adding to an exsisting Gatsby project
 
-> _Coming soon_
+> _Detailed steps coming soon_
 
 ## Configuration
 
