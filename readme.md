@@ -60,7 +60,7 @@ All the plugin options valid for [gatsby-theme-brain](https://github.com/aengusm
 
 ### Configuring the theme
 
-This project uses `theme-ui` which allows us to easily theme the site. You can customize the theme by adding a file at `./gatsby-theme-andy/theme.js`. The default values for the theme are at [src/theme.js](./src/theme.js). You can copy these to the new file you created and edit the values as you wish. 😎
+This project uses `theme-ui` which allows us to easily theme the site. You can customize the theme by adding a file at `.src/gatsby-theme-andy/theme.js`. The default values for the theme are at [src/theme.js](./src/theme.js). You can copy these to the new file you created and edit the values as you wish. 😎
 
 <!-- TODO add example from notes.aravindballa.com after updating it -->
 
