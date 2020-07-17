@@ -58,8 +58,11 @@ const NoteWrapper = ({ children, slug, title, overlay, obstructed, highlighted, 
             }}
             pb={2}
           >
-            <LinkToStacked to={slug}>
-              <Styled.p sx={{ m: 0, fontWeight: 'bold' }}>{title || slug}</Styled.p>
+            <LinkToStacked
+              to={slug}
+              sx={{ fontWeight: 'bold', textDecoration: 'none', color: 'text' }}
+            >
+              {title || slug}
             </LinkToStacked>
           </Box>
         </Box>
@@ -150,7 +153,7 @@ const BrainNotesContainer = ({ slug, note, location, siteMetadata }) => {
                 title={page.data.title}
                 overlay={stackedPageStates[page.slug] && stackedPageStates[page.slug].overlay}
                 obstructed={
-                  pages
+                  indexToShow !== undefined
                     ? false
                     : stackedPageStates[page.slug] && stackedPageStates[page.slug].obstructed
                 }
