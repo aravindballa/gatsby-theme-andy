@@ -66,7 +66,7 @@ This project uses `theme-ui` which allows us to easily theme the site. You can c
 
 ### Shadowing components
 
-You can shadow/override a few components for increased customizability. In your project, you would need to place them at `./gatsby-theme-andy/src/components`. ⚡️Have a look at the default components to see what `props` they get. Components you can override -
+You can shadow/override a few components for increased customizability. In your project, you would need to place them at `./src/gatsby-theme-andy/components/`. ⚡️Have a look at the default components to see what `props` they get. Components you can override -
 
 | Component                                                       | Description                                                                                                                                                                               |
 | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
