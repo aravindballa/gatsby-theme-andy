@@ -1,4 +1,4 @@
-# gatsby-theme-andy
+# gatsby-theme-andy An Amzing Website
 
 <p style="text-align:center;" align="center">
 <img src="https://github.com/aravindballa/gatsby-theme-andy/raw/master/andy-logo.png" alt="theme andy logo"  width="200" height="auto"/>
