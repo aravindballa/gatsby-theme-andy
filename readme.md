@@ -12,7 +12,7 @@ This is inspired by the work of [Andy](https://notes.andymatuschak.org/About_the
 
 ## Getting started
 
-> This theme requires alteast NodeJS v12. You can check your version by running `node -v` in your terminal. [Know more](https://github.com/aengusmcmillin/gatsby-theme-brain#note-this-theme-requires-nodejs-v12)
+> ⚠️ This theme requires alteast NodeJS v12. You can check your version by running `node -v` in your terminal. [Know more](https://github.com/aengusmcmillin/gatsby-theme-brain#note-this-theme-requires-nodejs-v12)
 
 ### From scratch
 
