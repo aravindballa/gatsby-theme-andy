@@ -37,7 +37,7 @@
     "react-dom": "^17.0.0"
   },
   "dependencies": {
-    "@aengusm/gatsby-theme-brain": "^1.0.13",
+    "@aengusm/gatsby-theme-brain": "github:flappyBug/gatsby-theme-brain",
     "@tippyjs/react": "^4.1.0",
     "gatsby-plugin-theme-ui": "^0.3.0",
     "querystring": "^0.2.0",
