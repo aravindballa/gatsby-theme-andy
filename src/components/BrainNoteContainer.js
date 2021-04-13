@@ -45,7 +45,7 @@ const NoteWrapper = ({ children, slug, title, overlay, obstructed, highlighted, 
           sx={{
             display: ['none', 'none', 'block'],
             transition: 'opacity',
-            transitionDuration: 100,
+            transitionDuration: '100ms',
             opacity: obstructed ? 1 : 0,
           }}
         >
@@ -71,7 +71,7 @@ const NoteWrapper = ({ children, slug, title, overlay, obstructed, highlighted, 
             flexDirection: 'column',
             minHeight: '100%',
             transition: 'opacity',
-            transitionDuration: 100,
+            transitionDuration: '100ms',
             opacity: obstructed ? 0 : 1,
           }}
         >
@@ -139,7 +139,7 @@ const BrainNotesContainer = ({ slug, note, location, siteMetadata }) => {
             minWidth: 'unset',
             flexGrow: 1,
             transition: [null, null, 'width'],
-            transitionDuration: 100,
+            transitionDuration: '100ms',
             width: ['100%', '100%', NOTE_WIDTH * (pages.length + 1)],
           }}
         >
